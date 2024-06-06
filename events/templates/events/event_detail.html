@@ -1,0 +1,13 @@
+{% extends 'events/base.html' %}
+
+{% block content %}
+<h2>{{ event.title }}</h2>
+<p>{{ event.description }}</p>
+<p>Local: {{ event.location }}</p>
+<p>Data de Início: {{ event.start_time }}</p>
+<p>Data de Término: {{ event.end_time }}</p>
+{% if user == event.creator %}
+    <a href="{% url 'event_edit' event.pk %}">Editar</a>
+    <a href="{% url 'event_delete' event.pk %}">Excluir</a>
+{% endif %}
+{% endblock %}
